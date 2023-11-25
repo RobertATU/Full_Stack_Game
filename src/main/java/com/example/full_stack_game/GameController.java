@@ -11,9 +11,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/game")
 public class GameController {
+    private GameService gameService;
     @GetMapping
-    public ResponseEntity<String> allGames(){
+    public ResponseEntity<List<Game>> allGames(){
 
-        return new ResponseEntity<String>("Hi", HttpStatus.OK);
+        return new ResponseEntity<List<Game>>(gameService.allGames(), HttpStatus.OK);
     }
 }
